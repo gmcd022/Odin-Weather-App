@@ -3,10 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
   </head>
   <body>
-    <p class="hello">Hello Webpack!</p>
+    <header class="header">Header</div>
+    <div class ="search">
+      <input type="text" default="search for a location" id="searchbar"/>
+      <button class = "searchIcon">
+        <img src="/assets/search.svg" alt="Enter your search" class="searchIcon" />
+      </button>
+    </div>
+    <div class="results"></div>
+    <div class="loading-overlay invisible">
+      <img
+        src="../assets/waiting.jpg"
+        alt="loading"
+        class="loading-animation"
+      />
+      <p class="loading-text">Loading...</p>  
+    </div>
+
+
     <script src="bundle.js"></script>
   </body>
 </html>
