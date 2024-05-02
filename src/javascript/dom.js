@@ -1,6 +1,20 @@
 import { fetchWeather, setCity} from "./fetchWeather";
 
-//Event Listeners
+
+const toggle = document.querySelector(".toggle");
+let tempunit = "c";
+
+
+//toggle tempunit - c or f 
+
+toggle.addEventListener("click", () => {
+    if (tempunit === "c") {
+        tempunit = "f";
+    } else {
+        tempunit = "c";
+    }
+});
+
 
 async function submitCity() {
     const searchBar = document.getElementById("searchbar");
@@ -29,16 +43,22 @@ async function submitCity() {
 function displayWeather(currentWeather) {
     const displayDiv = document.querySelector(".results");
 
+    clearDOM();
+
     const cityName = document.createElement("p");
     cityName.textContent = currentWeather.cityName;
     displayDiv.appendChild(cityName);
-
+   
     const cityTemp = document.createElement("p");
-    cityTemp.textContent = currentWeather.mainWeather + "c";
-    displayDiv.appendChild(cityTemp);
-
     const cityFeelsLike = document.createElement("p");
-    cityFeelsLike.textContent = currentWeather.feelsLike;
+    if (tempunit === "c") {
+        cityTemp.textContent = currentWeather.mainWeather + " c";
+        cityFeelsLike.textContent = currentWeather.feelsLike + " c";
+    } else {
+        cityTemp.textContent = currentWeather.mainWeatherF + " f";
+        cityFeelsLike.textContent = currentWeather.feelsLikeF + " f";
+   } 
+    displayDiv.appendChild(cityTemp);
     displayDiv.appendChild(cityFeelsLike);
 
     const cityRain = document.createElement("p");
@@ -58,5 +78,14 @@ function displayWeather(currentWeather) {
     displayDiv.appendChild(cityWindDir);     
 };
 
-export { displayWeather, submitCity };
+function clearDOM() {
+    const nodeList = document.querySelectorAll("p");
+    if (nodeList !== null) {
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].remove();
+        }
+    }
+}
+
+export { displayWeather, submitCity, clearDOM };
 

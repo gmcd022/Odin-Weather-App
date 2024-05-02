@@ -6,7 +6,15 @@
     <title>Weather App</title>
   </head>
   <body>
-    <header class="header">Header</div>
+    <div class="header">
+      <div class="navbar">
+        <h1>Weather App</h1>
+        <label class="switch">
+          <input type="checkbox" class="toggle">
+          <span class="slider round">fahrenheit</span> 
+        </label>
+      </div>
+    </div>
     <div class ="search">
       <input type="text" default="search for a location" id="searchbar"/>
       <button class = "searchIcon">
@@ -20,9 +28,10 @@
         alt="loading"
         class="loading-animation"
       />
-      <p class="loading-text">Loading...</p>  
+      <h1 class="loading-text">Loading...</h1>  
     </div>
-
+    <div class="credit">Photo by <a href="https://unsplash.com/@billy_huy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Billy Huynh</a> on <a href="https://unsplash.com/photos/cloudy-sky-at-daytime-v9bnfMCyKbg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+    </div>
 
     <script src="bundle.js"></script>
   </body>
