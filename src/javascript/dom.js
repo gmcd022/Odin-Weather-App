@@ -1,4 +1,5 @@
 import { fetchWeather, setCity} from "./fetchWeather";
+import { fetchSearchGiphy } from "./gif";
 
 
 const toggle = document.querySelector(".toggle");
@@ -33,15 +34,13 @@ async function submitCity() {
       return;
     }
   
-    //updateLocation();
-    //updateSidebar();
-    //updateHourlyBar();
-    //updateDailyBar();
+    
     loadingOverlay.classList.add("invisible");
   }
 
 function displayWeather(currentWeather) {
     const displayDiv = document.querySelector(".results");
+    const gif = currentWeather.gifSearch
 
     clearDOM();
 
@@ -75,7 +74,10 @@ function displayWeather(currentWeather) {
 
     const cityWindDir = document.createElement("p");
     cityWindDir.textContent = currentWeather.windDir;
-    displayDiv.appendChild(cityWindDir);     
+    displayDiv.appendChild(cityWindDir);
+    
+    fetchSearchGiphy(gif);
+    console.log(gif);
 };
 
 function clearDOM() {

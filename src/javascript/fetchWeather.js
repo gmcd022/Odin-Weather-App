@@ -16,6 +16,7 @@ const fetchWeather = async (city) => {
 
     const currentWeather = {
     cityName: weatherDataJson.location.name,
+    country: weatherDataJson.location.country,
     mainWeather: weatherDataJson.current.temp_c,
     mainWeatherF: weatherDataJson.current.temp_f,
     feelsLike: weatherDataJson.current.feelslike_c,
@@ -23,10 +24,12 @@ const fetchWeather = async (city) => {
     rain: weatherDataJson.current.precip_mm,
     humidity: weatherDataJson.current.humidity,
     windKph: weatherDataJson.current.wind_kph,
-    windDir: weatherDataJson.current.wind_dir
+    windDir: weatherDataJson.current.wind_dir,
+    gifSearch: weatherDataJson.current.condition.text
     };
 
     console.log(weatherDataJson);
+    console.log(currentWeather);
     displayWeather(currentWeather);
 
 };
